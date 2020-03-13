@@ -56,10 +56,10 @@
   padding: 10px 16px;
   margin-top: 10px;
 }
-.LabelSignIn:hover{
+.LinkSI:hover{
   color: black;
 }
-.LabelGetStared:hover{
+.LinkGS:hover{
   color: black;
 }
 
