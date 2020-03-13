@@ -1,0 +1,21 @@
+.Header {
+  height: 120px;
+  background: #FFFFFF;
+  width: 100%;
+  position: fixed;
+}
+.UpHeader {
+  height: 52px;
+  display: flex;
+  justify-content: space-between;
+  margin-left: 50px;
+}
+.RightUpHeader {
+  margin-right: 50px;
+}
+.BottomHeader {
+  margin-left: 50px;
+  display: flex;;
+  justify-content: flex-start;
+  height: 48px;
+}
