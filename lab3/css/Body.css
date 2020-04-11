@@ -10,7 +10,7 @@ body{
 .BlockSevenDays{
     border-radius: 10px;
     height: 500px;
-    background-image: url(lab3/images/BackGround.jpg);
+    background-image: url(/lab3/images/BackGround.jpg);
     background-size: cover;
     margin: 0px 100px;
     display: flex;
