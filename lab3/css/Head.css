@@ -1,0 +1,20 @@
+
+.Head{
+    background-color: ghostwhite;
+    margin: 0px 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-radius: 10px;
+}
+
+.MainHeader{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 5px;
+    margin-left: 5px;
+    font-family: 'Playfair Display', serif;
+    font-size: 45px;
+    font-weight: 400;
+    font-style: normal;
+}
