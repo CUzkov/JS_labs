@@ -1,18 +1,16 @@
 
 .Head{
-    background-color: ghostwhite;
+    background-color: WhiteSmoke;
     margin: 0px 100px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     border-radius: 10px;
+    border: 1px solid Silver;
 }
 
 .MainHeader{
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-right: 5px;
-    margin-left: 5px;
+    margin: 10px;
     font-family: 'Playfair Display', serif;
     font-size: 45px;
     font-weight: 400;
