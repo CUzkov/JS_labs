@@ -23,20 +23,20 @@ function addTo(add, to, newProperty, removeProperty){
 for (let i = 0; i < 7; i++){
     addTo(`day${i}`, '.blockSevenDays', 'day');
 }
-    
+    /*
 if(navigator.geolocation){
     navigator.geolocation.getCurrentPosition(function(position) {
         let lat = position.coords.latitude;
-        let lon = position.coords.longitude;
-        fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&lang=ru&appid=04a8f926516de8567795579044b734ab`)
+        let lon = position.coords.longitude;*/
+        fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=1&lon=1&lang=ru&appid=04a8f926516de8567795579044b734ab`)
             .then(function (resp) { return resp.json() })
             .then(function (data) { 
                 for(let i = 0; i < 7; i++){
     
-                    addTo(`day${i}Head`, `.day${i}`, 'dayFlex');
+                    addTo(`day${i}Head`, `.day${i}`);
     
-                    document.querySelector(`.day${i}Head`).innerHTML += (`${days[((NowDate.getDay() + i) % 7)]} ${(NowDate.getDate() + i)} ${months[(NowDate.getMonth() % 12)]}<br>`);
-                    document.querySelector(`.day${i}Head`).innerHTML += (data.daily[i].weather[0].description);
+                    document.querySelector(`.day${i}Head`).innerHTML += (`${days[((NowDate.getDay() + i) % 7)]} ${(NowDate.getDate() + i)} ${months[(NowDate.getMonth() % 12)]}<hr>`);
+                    document.querySelector(`.day${i}Head`).innerHTML += (`${data.daily[i].weather[0].description}`);
 
                     addTo(`day${i}Body`, `.day${i}`, 'dayFlex');
                     addTo(`dayText${i}`, `.day${i}Body`);
@@ -55,7 +55,7 @@ if(navigator.geolocation){
     
                 addTo('CurrentDayUp', '.BlockCurrentDay', null, 'day');
     
-                document.querySelector('.CurrentDayUp').innerHTML += (`<h3>Сегодня ${data.current.weather[0].description}<br>`);
+                document.querySelector('.CurrentDayUp').innerHTML += (`<h4>Сегодня - ${data.current.weather[0].description}<hr>`);
     
                 addTo('CurrentDayDown', '.BlockCurrentDay', 'CurrentDayDown')
                 addTo('CurrentDayDownRihgt', '.CurrentDayDown')
@@ -74,8 +74,8 @@ if(navigator.geolocation){
                 weatherIcon.src = `http://openweathermap.org/img/wn/${data.current.weather[0].icon}@2x.png`;
                 document.querySelector(`.CurrentDayDownLeft`).append(weatherIcon.cloneNode(true));
             }); 
-    });     
-}   
+   // });     
+//}   
 
 
 

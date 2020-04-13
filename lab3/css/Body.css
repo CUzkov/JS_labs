@@ -1,6 +1,6 @@
 
 body{
-    min-width: 1400px;
+    min-width: 1600px;
     background-color: Gainsboro;
 }
 
@@ -12,12 +12,12 @@ body{
 
 .day{
     background-color: white;
-    height: 100px;
-    width: 200px;
+    height: 110px;
+    width: 250px;
     opacity: 0.5;
     margin: 15px 10px;
     border-radius: 5px;
-    padding: 0px 10px;
+    padding: 10px 10px;
     font-size: 12px;
     color: black;
     font-weight: 800;
@@ -45,7 +45,7 @@ body{
     margin: 0px 100px;
     border-radius: 10px;
     border: 1px solid DarkGray;
-    height: 455px;
+    height: 465px;
     background-image: url(https://cuzkov.github.io/JS_labs/lab3/images/BackGround.jpg);
     background-size: cover;
     background-position: right 0px bottom 0px;
@@ -71,4 +71,9 @@ body{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+}
+
+h4{
+    margin-bottom: 0px;
+    margin-top: 10px;
 }
