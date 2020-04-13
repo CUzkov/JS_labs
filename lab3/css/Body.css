@@ -12,7 +12,7 @@ body{
 
 .day{
     background-color: white;
-    height: 180px;
+    height: 100px;
     width: 200px;
     opacity: 0.5;
     margin: 15px 10px;
@@ -45,7 +45,7 @@ body{
     margin: 0px 100px;
     border-radius: 10px;
     border: 1px solid DarkGray;
-    height: 515px;
+    height: 455px;
     background-image: url(https://cuzkov.github.io/JS_labs/lab3/images/BackGround.jpg);
     background-size: cover;
     background-position: right 0px bottom 0px;
