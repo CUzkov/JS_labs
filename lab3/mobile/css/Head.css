@@ -1,0 +1,13 @@
+.Head{
+    background-color: WhiteSmoke;
+    border-radius: 10px;
+    border: 1px solid Silver;
+}
+
+.MainHeader{
+    margin: 10px;
+    font-family: 'Playfair Display', serif;
+    font-size: 45px;
+    font-weight: 400;
+    font-style: normal;
+}
