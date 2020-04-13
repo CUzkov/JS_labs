@@ -23,12 +23,12 @@ function addTo(add, to, newProperty, removeProperty){
 for (let i = 0; i < 7; i++){
     addTo(`day${i}`, '.blockSevenDays', 'day');
 }
-    /*
+
 if(navigator.geolocation){
     navigator.geolocation.getCurrentPosition(function(position) {
         let lat = position.coords.latitude;
-        let lon = position.coords.longitude;*/
-        fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=1&lon=1&lang=ru&appid=04a8f926516de8567795579044b734ab`)
+        let lon = position.coords.longitude;
+        fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&lang=ru&appid=04a8f926516de8567795579044b734ab`)
             .then(function (resp) { return resp.json() })
             .then(function (data) { 
                 for(let i = 0; i < 7; i++){
@@ -74,9 +74,5 @@ if(navigator.geolocation){
                 weatherIcon.src = `http://openweathermap.org/img/wn/${data.current.weather[0].icon}@2x.png`;
                 document.querySelector(`.CurrentDayDownLeft`).append(weatherIcon.cloneNode(true));
             }); 
-   // });     
-//}   
-
-
-
-
+    });     
+}   
