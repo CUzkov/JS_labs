@@ -9,6 +9,6 @@ function isMobile() {
   
 if(isMobile() === true) {
     if(location != '/lab3/mobile/index1.html'){
-        location.replace('/lab3/mobile/index1.html');
+        location.replace('JS_labs/lab3/mobile/index1.html');
     }
 }
