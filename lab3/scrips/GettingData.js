@@ -36,7 +36,7 @@ if(navigator.geolocation){
                     addTo(`day${i}Head`, `.day${i}`);
     
                     document.querySelector(`.day${i}Head`).innerHTML += (`${days[((NowDate.getDay() + i) % 7)]} ${(NowDate.getDate() + i)} ${months[(NowDate.getMonth() % 12)]}<hr>`);
-                    document.querySelector(`.day${i}Head`).innerHTML += (`${data.daily[i].weather[0].description}`);
+                    document.querySelector(`.day${i}Head`).innerHTML += ((`${data.daily[i].weather[0].description}`).charAt(0).toUpperCase() + (`${data.daily[i].weather[0].description}`).slice(1));
 
                     addTo(`day${i}Body`, `.day${i}`, 'dayFlex');
                     addTo(`dayText${i}`, `.day${i}Body`);
