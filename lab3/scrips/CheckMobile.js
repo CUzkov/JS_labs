@@ -8,7 +8,7 @@ function isMobile() {
   
   
 if(isMobile() === true) {
-    if(location != '/lab3/mobile/index1.html'){
-        location.replace('JS_labs/lab3/mobile/index1.html');
+    if(location != 'JS_labs/lab3/mobile/index1.html'){
+        location.replace('https://cuzkov.github.io/JS_labs/lab3/mobile/index1.html');
     }
 }
