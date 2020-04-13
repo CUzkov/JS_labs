@@ -52,6 +52,7 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    filter: drop-shadow(10px 10px 20px DarkGray);
 }
 
 .BlockCurrentDay{

@@ -44,6 +44,7 @@ body{
     background-image: url(https://cuzkov.github.io/JS_labs/lab3/images/BackGround.jpg);
     background-size: cover;
     background-position: right 0px bottom 0px;
+    filter: drop-shadow(10px 10px 20px DarkGray);
 }
 
 .BlockCurrentDay{
