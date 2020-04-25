@@ -35,11 +35,8 @@ function submitForm(e){
                 user.updateProfile({
                     displayName: name
                 })
-                .then(() => {
-                    user.updatePhoneNumber(phone);
-                })
                 .then(function() {}, function(error) {
-                    alert('Да блять');
+                    alert('Плоха');
                 });
                 addRegFrom(false);
                 addSingIn(true);
