@@ -1,0 +1,107 @@
+.form{
+    height: 530px;
+    width: 400px;
+    border: 1px solid darkgrey;
+    border-radius: 15px;
+    background-color: whitesmoke;
+    filter: drop-shadow(10px 10px 20px DarkGray);
+    padding: 10px 10px;
+}
+
+.SingIn{
+    height: 275px;
+    width: 400px;
+    border: 1px solid darkgrey;
+    border-radius: 15px;
+    background-color: whitesmoke;
+    filter: drop-shadow(10px 10px 20px DarkGray);
+    padding: 10px 10px;
+}
+
+.Body{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+body{
+    background-color: Gainsboro;
+}
+
+.MainHeader {
+    margin: 10px;
+    font-family: 'Playfair Display', serif;
+    font-size: 45px;
+    font-weight: 400;
+    font-style: normal;
+    margin-top: 5px;
+    margin-left: 5px;
+    height: 60px;
+    width: 285px;
+    filter: drop-shadow(10px 10px 20px DarkGray);
+    background-color: whitesmoke;
+    border: 1px solid darkgrey;
+    border-radius: 15px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.profile{
+    width: 800px;
+    filter: drop-shadow(10px 10px 20px DarkGray);
+    background-color: whitesmoke;
+    border: 1px solid darkgrey;
+    border-radius: 15px;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-family: 'Playfair Display', serif;
+    font-size: 25px;
+    font-weight: 400;
+    font-style: normal;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.formTitle{
+    font-size: 25px;
+    color: black;
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;
+    opacity: .7;
+}
+
+.formText{
+    color: black;
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;
+    opacity: .7;
+}
+
+.formStyle{
+    padding: 0px 14px;
+}
+
+.input{
+    margin: 0 auto;
+    width: 340px;
+}
+
+.formSubmitButton{
+    width: 358px;
+    height: 50px;
+}
+
+/*Style hr from:
+https://bloggood.ru/recepty-css/css-stili-dlya-gorizontalnyx-linij-hr.html/
+*/
+
+hr{
+    border: 0;
+    height: 1px;
+    background: #000;
+    background-image: -webkit-linear-gradient(left, #fff, #000, #fff);
+    background-image: -moz-linear-gradient(left, #fff, #000, #fff);
+    background-image: -ms-linear-gradient(left, #fff, #000, #fff);
+    background-image: -o-linear-gradient(left, #fff, #000, #fff);
+}
