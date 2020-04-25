@@ -1,5 +1,5 @@
 .form{
-    height: 530px;
+    height: 470px;
     width: 400px;
     border: 1px solid darkgrey;
     border-radius: 15px;
@@ -47,7 +47,7 @@ body{
 }
 
 .profile{
-    width: 800px;
+    width: 600px;
     filter: drop-shadow(10px 10px 20px DarkGray);
     background-color: whitesmoke;
     border: 1px solid darkgrey;
@@ -104,4 +104,10 @@ hr{
     background-image: -moz-linear-gradient(left, #fff, #000, #fff);
     background-image: -ms-linear-gradient(left, #fff, #000, #fff);
     background-image: -o-linear-gradient(left, #fff, #000, #fff);
+}
+
+.profileImg{
+    height: 200px;
+    width: 200px;
+    margin: 10px 10px;
 }

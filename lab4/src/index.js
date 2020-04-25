@@ -1,5 +1,5 @@
 import './css/Body.css'
-import {addRegFrom, addProf} from './functions'
+import {addRegFrom} from './functions'
 
 var firebaseConfig = {
   apiKey: "AIzaSyBzWAUlImZ3wV4dpxcWhJ-6BSZ-2QMUW-s",
@@ -13,11 +13,4 @@ var firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 
-var user = firebase.auth().currentUser;
-
-if(user){
-    addProf();
-}
-else{
-    addRegFrom(true);
-}
+addRegFrom(true);

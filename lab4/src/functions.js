@@ -15,37 +15,41 @@ function submitForm(e){
 
     firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
         if(error.message){
-            alert(errorMessage);
+            alert(error.message);
         }
-    });
-
-    firebase.auth().onAuthStateChanged((user) => {
-        if (user) {
-            var databaseRef = firebase.database().ref(`/users/${user.uid}`);
-        
-            var imgRef = storageRef.child(`/users/${user.uid}/photo.png`);
-        
-            if(photo){
-                imgRef.put(photo).then(function(snapshot) {
-                    console.log('Uploaded a blob or file!');
-                });   
-            }
-
-            var newFormRef = databaseRef.push();
-
+    })
+    .then(() => {
+        firebase.auth().onAuthStateChanged((user) => {
+            if (user) {        
+                var imgRef = storageRef.child(`/users/${user.uid}/photo.png`);
             
-            user.updateProfile({
-                displayName: name,
-                phoneNumber: phone,
-                photoURL: `gs://jslab4form.appspot.com/users/${user.uid}`
-            });
-
-        } else {
-            alert('Some error!');
-        }
+                if(photo){
+                    imgRef.put(photo).then(function(snapshot) {
+                        console.log('Uploaded a blob or file!');
+                        user.updateProfile({
+                            photoURL: snapshot.downloadURL
+                        })
+                    });  
+                }
+    
+                user.updateProfile({
+                    displayName: name
+                })
+                .then(() => {
+                    user.updatePhoneNumber(phone);
+                })
+                .then(function() {}, function(error) {
+                    alert('Да блять');
+                });
+                addRegFrom(false);
+                addSingIn(true);
+                    
+            } else {
+                alert('Some error!');
+            }
+        });
     });
-    addRegFrom(false);
-    addProf();
+
 }
 
 function singIn(e){
@@ -60,7 +64,7 @@ function singIn(e){
             status = false;
             alert(error.message);
         }
-    }).then(function (){
+    }).then(() => {
         if(status){
             addSingIn(false);
             addProf();
@@ -73,17 +77,15 @@ function getElementByIdValue(id){
     return document.getElementById(id).value;
 }
 
-export function addProf(){
+function addProf(){
     var user = firebase.auth().currentUser;
     document.getElementById('Body').innerHTML +=
         `<div class="profile">
           <div class="photo">
-          <img src=${user.photoURL}>
+          <img src=${user.photoURL} class="profileImg">
           </div>
           <div class="information">
             <p>Имя: ${user.displayName}</p>
-            <p>Фамилия: </p>
-            <p>Телефон: ${user.phoneNumber}</p>
             <P>Email: ${user.email}</P>
           </div>
         </div>`
@@ -100,8 +102,7 @@ export function addRegFrom(addDel){
           <br>
           <form class="formStyle" id="form" enctype="multipart/form-data">
             <input type="text" id="name" required placeholder="Name" class="input"><br><hr>
-            <input type="text" id="secondName" required placeholder="Second name" class="input"><br><hr>
-            <input type="text" id="email" required placeholder="Email" class="input"><br><hr>
+            <input type="email" id="email" required placeholder="Email" class="input"><br><hr>
             <input type="text" id="password" required placeholder="password" class="input"><br><hr>
             <input type="phone" id="phone" required placeholder="Mobile phone" class="input"><br><hr>
             <p class="formText">Фотография профиля:</p>
