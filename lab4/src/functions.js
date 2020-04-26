@@ -15,7 +15,8 @@ function submitForm(e){
 
     firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
         if(error.message){
-            alert(error.message);
+          document.getElementById('formSubmitButton').disabled = false;
+          alert(error.message);
         }
     })
     .then(() => {
@@ -42,7 +43,7 @@ function submitForm(e){
                 addSingIn(true);
                     
             } else {
-                alert('Some error!');
+                console.log('Some error!!!');
             }
         });
     });
@@ -98,14 +99,14 @@ export function addRegFrom(addDel){
           </div>
           <br>
           <form class="formStyle" id="form" enctype="multipart/form-data">
-            <input type="text" id="name" required placeholder="Name" class="input"><br><hr>
+            <input type="text" id="name" required placeholder="Никнейм" class="input"><br><hr>
             <input type="email" id="email" required placeholder="Email" class="input"><br><hr>
-            <input type="text" id="password" required placeholder="password" class="input"><br><hr>
-            <input type="phone" id="phone" required placeholder="Mobile phone" class="input"><br><hr>
+            <input type="text" id="password" required placeholder="Пароль" class="input"><br><hr>
+            <input type="phone" id="phone" required placeholder="Телефон" class="input"><br><hr>
             <p class="formText">Фотография профиля:</p>
             <input type="file" id="photo" name="photo" multiple accept="image/*,image/jpeg" class="input"><br><hr>
-            <button type="submit" class="formSubmitButton" id="formSubmitButton">Register</button><br><hr>
-            <button type="button" class="formSubmitButton" id="singIn">Or sing in</button>
+            <button type="submit" class="formSubmitButton" id="formSubmitButton">Зарегистрироваться</button><br><hr>
+            <button type="button" class="formSubmitButton" id="singIn">Или войти</button>
            </form>
         </div>
       </div>`
@@ -125,21 +126,21 @@ function addSingIn(addDel){
   if(addDel){
     document.getElementById('Body').innerHTML += `
     <div id="fromWindow">
-      <div class="SingIn id="form">
+      <div class="SingInForm id="form">
         <div class="formTitle">
         Вход:
         </div>
         <br>
         <form class="formStyle" id="form" enctype="multipart/form-data">
           <input type="text" id="email" required placeholder="Email" class="input"><br><hr>
-          <input type="text" id="password" required placeholder="password" class="input"><br><hr>
-          <button type="submit" class="formSubmitButton" id="formSubmitButton">Sing in</button><br><hr>
-          <button type="button" class="formSubmitButton" id="orRegister">Or register</button>
+          <input type="text" id="password" required placeholder="Пароль" class="input"><br><hr>
+          <button type="submit" class="formSubmitButton" id="formSubmitButton">Войти</button><br><hr>
+          <button type="button" class="formSubmitButton" id="orRegisterButton">Или зарегистрироваться</button>
         </form>
       </div>
     </div>`
     document.getElementById('form').addEventListener('submit', singIn);
-    document.getElementById('orRegister').onclick = function(){
+    document.getElementById('orRegisterButton').onclick = function(){
       addSingIn(false);
       addRegFrom(true);
     }

@@ -1,14 +1,15 @@
 .form{
-    height: 470px;
-    width: 400px;
     border: 1px solid darkgrey;
     border-radius: 15px;
     background-color: whitesmoke;
     filter: drop-shadow(10px 10px 20px DarkGray);
     padding: 10px 10px;
 }
+@media screen and (max-width:479px) {
+    .form {width: 320px;}
+}
 
-.SingIn{
+.SingInForm{
     height: 275px;
     width: 400px;
     border: 1px solid darkgrey;
@@ -16,6 +17,9 @@
     background-color: whitesmoke;
     filter: drop-shadow(10px 10px 20px DarkGray);
     padding: 10px 10px;
+}
+@media screen and (max-width:479px) {
+    .SingInForm {width: 320px;}
 }
 
 .Body{
@@ -29,7 +33,6 @@ body{
 }
 
 .MainHeader {
-    margin: 10px;
     font-family: 'Playfair Display', serif;
     font-size: 45px;
     font-weight: 400;
@@ -70,6 +73,9 @@ body{
     font-weight: 400;
     opacity: .7;
 }
+@media screen and (max-width:479px) {
+    .formTitle {font-size: 20px;}
+}
 
 .formText{
     color: black;
@@ -78,18 +84,20 @@ body{
     opacity: .7;
 }
 
-.formStyle{
-    padding: 0px 14px;
-}
-
 .input{
     margin: 0 auto;
     width: 340px;
+}
+@media screen and (max-width:479px) {
+    .input {width: 300px;}
 }
 
 .formSubmitButton{
     width: 358px;
     height: 50px;
+}
+@media screen and (max-width:479px) {
+    .formSubmitButton {width: 318px;}
 }
 
 /*Style hr from:
