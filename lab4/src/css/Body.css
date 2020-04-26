@@ -10,8 +10,6 @@
 }
 
 .SingInForm{
-    height: 275px;
-    width: 400px;
     border: 1px solid darkgrey;
     border-radius: 15px;
     background-color: whitesmoke;
@@ -50,13 +48,11 @@ body{
 }
 
 .profile{
-    width: 600px;
     filter: drop-shadow(10px 10px 20px DarkGray);
     background-color: whitesmoke;
     border: 1px solid darkgrey;
     border-radius: 15px;
-    padding-left: 5px;
-    padding-right: 5px;
+    padding: 10px 10px;
     font-family: 'Playfair Display', serif;
     font-size: 25px;
     font-weight: 400;
@@ -64,6 +60,13 @@ body{
     display: flex;
     flex-direction: row;
     justify-content: center;
+}
+@media screen and (max-width:479px) {
+    .profile {
+        width: 320px;
+        flex-direction: column;
+        font-size: 20px;
+    }
 }
 
 .formTitle{
@@ -92,12 +95,12 @@ body{
     .input {width: 300px;}
 }
 
-.formSubmitButton{
+.button{
     width: 358px;
     height: 50px;
 }
 @media screen and (max-width:479px) {
-    .formSubmitButton {width: 318px;}
+    .button {width: 318px;}
 }
 
 /*Style hr from:
@@ -115,7 +118,7 @@ hr{
 }
 
 .profileImg{
-    height: 200px;
-    width: 200px;
+    height: 250px;
+    width: 250px;
     margin: 10px 10px;
 }

@@ -1,73 +1,82 @@
 function submitForm(e){
 
-    var storageRef = firebase.storage().ref();
-    var status = false;
-    
-    var email = getElementByIdValue('email');
-    var password = getElementByIdValue('password');
-    var name = getElementByIdValue('name');
-    var phone = getElementByIdValue('phone');
-    var photo = document.getElementById('photo').files[0];
+  //variables
+  var storageRef = firebase.storage().ref();
+  var status = false;
+  var email = getElementByIdValue('email');
+  var password = getElementByIdValue('password');
+  var name = getElementByIdValue('name');
+  var phone = getElementByIdValue('phone');
+  var photo = document.getElementById('photo').files[0];
 
-    e.preventDefault();
+  //preparations
+  e.preventDefault();
+  document.getElementById('registerButton').disabled = true;
 
-    document.getElementById('formSubmitButton').disabled = true;
-
-    firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
-        if(error.message){
-          document.getElementById('formSubmitButton').disabled = false;
-          alert(error.message);
-        }
-    })
-    .then(() => {
-        firebase.auth().onAuthStateChanged((user) => {
-            if (user) {        
-                var imgRef = storageRef.child(`/users/${user.uid}/photo.png`);
-            
-                if(photo){
-                    imgRef.put(photo).then(function(snapshot) {
-                        console.log('Uploaded a blob or file!');
-                        user.updateProfile({
-                            photoURL: snapshot.downloadURL
-                        })
-                    });  
-                }
-    
-                user.updateProfile({
-                    displayName: name
-                })
-                .then(function() {}, function(error) {
-                    alert('Плоха');
-                });
-                addRegFrom(false);
-                addSingIn(true);
-                    
-            } else {
-                console.log('Some error!!!');
-            }
-        });
-    });
+  //create new account
+  firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+      if(error.message){
+        document.getElementById('registerButton').disabled = false;
+        alert(error.message);
+      }
+  })
+  .then(() => {
+      firebase.auth().onAuthStateChanged((user) => {
+          if (user) {        
+              var imgRef = storageRef.child(`/users/${user.uid}/photo.png`);
+          
+              if(photo){
+                  imgRef.put(photo).then(function(snapshot) {
+                      console.log('Uploaded a blob or file!');
+                      user.updateProfile({
+                          photoURL: snapshot.downloadURL
+                      })
+                  });  
+              }
+  
+              user.updateProfile({
+                  displayName: name
+              })
+              .then(function() {}, function(error) {
+                  alert('Плоха');
+              });
+              addRegFrom(false);
+              addSingIn(true);
+                  
+          } else {
+              console.log('Some error!!!');
+          }
+      });
+  });
 
 }
 
 function singIn(e){
-    e.preventDefault();
 
-    var email = getElementByIdValue('email');
-    var password = getElementByIdValue('password');
-    var status = true;
+  //variables
+  var email = getElementByIdValue('email');
+  var password = getElementByIdValue('password');
+  var status = true;
 
-    firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
-        if(error.message){
-            status = false;
-            alert(error.message);
-        }
-    }).then(() => {
-        if(status){
-            addSingIn(false);
-            addProf();
-        }
-    });
+  //preparations
+  e.preventDefault();
+  document.getElementById('singInButton').disabled = true;
+  document.getElementById('orRegisterButton').disabled = true;
+
+  //auth
+  firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+      if(error.message){
+          status = false;
+          document.getElementById('singInButton').disabled = false;
+          document.getElementById('orRegisterButton').disabled = false;
+          alert(error.message);
+      }
+  }).then(() => {
+      if(status){
+          addSingIn(false);
+          addProf();
+      }
+  });
 
 }
 
@@ -76,20 +85,23 @@ function getElementByIdValue(id){
 }
 
 function addProf(){
+
     var user = firebase.auth().currentUser;
+
     document.getElementById('Body').innerHTML +=
         `<div class="profile">
           <div class="photo">
-          <img src=${user.photoURL} class="profileImg">
+          <img src=${user.photoURL} class="profileImg"><br><hr>
           </div>
           <div class="information">
-            <p>Имя: ${user.displayName}</p>
-            <P>Email: ${user.email}</P>
+            Имя: ${user.displayName}<br><hr>
+            Email: ${user.email}
           </div>
         </div>`
 }
 
 export function addRegFrom(addDel){
+  
   if(addDel){
       document.getElementById('Body').innerHTML += `
       <div id="fromWindow">
@@ -105,8 +117,8 @@ export function addRegFrom(addDel){
             <input type="phone" id="phone" required placeholder="Телефон" class="input"><br><hr>
             <p class="formText">Фотография профиля:</p>
             <input type="file" id="photo" name="photo" multiple accept="image/*,image/jpeg" class="input"><br><hr>
-            <button type="submit" class="formSubmitButton" id="formSubmitButton">Зарегистрироваться</button><br><hr>
-            <button type="button" class="formSubmitButton" id="singIn">Или войти</button>
+            <button type="submit" class="button" id="registerButton">Зарегистрироваться</button><br><hr>
+            <button type="button" class="button" id="singIn">Или войти</button>
            </form>
         </div>
       </div>`
@@ -134,8 +146,8 @@ function addSingIn(addDel){
         <form class="formStyle" id="form" enctype="multipart/form-data">
           <input type="text" id="email" required placeholder="Email" class="input"><br><hr>
           <input type="text" id="password" required placeholder="Пароль" class="input"><br><hr>
-          <button type="submit" class="formSubmitButton" id="formSubmitButton">Войти</button><br><hr>
-          <button type="button" class="formSubmitButton" id="orRegisterButton">Или зарегистрироваться</button>
+          <button type="submit" class="button" id="singInButton">Войти</button><br><hr>
+          <button type="button" class="button" id="orRegisterButton">Или зарегистрироваться</button>
         </form>
       </div>
     </div>`
