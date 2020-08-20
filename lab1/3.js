@@ -9,5 +9,3 @@
 function multiplyArray(arr, n) {
   return arr.map(index => typeof index === 'number' ? index * n : index);
 }
-
-module.exports = multiplyArray;

@@ -13,5 +13,3 @@ function getMinMax(str) {
   mass = str.split(/[ ,!?]/).map(index => parseFloat(index, 10)).filter(index => !isNaN(index) && typeof index === 'number');
   return { min: Math.min(...mass), max: Math.max(...mass) };
 }
-
-module.exports = getMinMax;
