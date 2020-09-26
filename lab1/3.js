@@ -7,5 +7,5 @@
  * [1, 2, 3, 'ddd', {min: 1}, 22, false], 2 -> [2, 4, 6, 'ddd', {min: 1}, 44, false]
  */
 function multiplyArray(arr, n) {
-  return arr.map(index => typeof index === 'number' ? index * n : index);
+	return arr.map(index => typeof index === 'number' ? index * n : index);
 }
